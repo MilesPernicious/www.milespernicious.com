@@ -1,0 +1,24 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+const year = new Date().getFullYear();
+---
+
+<footer>
+	Privacy Policy | Site Index | Trademark Policy | Feedback<br>
+	&copy; {year} Miles Pernicious
+</footer>
+<style>
+	footer {
+		height: var(--miles-footer-size);
+		max-height: var(--miles-footer-size);
+		background-color: var(--color-theme);
+		color: var(--color-on-theme);
+		text-align: center;
+		box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.15);
+	}
+</style>

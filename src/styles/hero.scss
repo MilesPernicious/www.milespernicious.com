@@ -1,0 +1,57 @@
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+section.hero {
+	--height: calc(100vh - var(--miles-header-size) - var(--miles-footer-size)); // viewport - header - footer
+	--bg: var(--color-theme);
+	--color: var(--color-on-theme);
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+}
+
+.hero-image, .hero-overlay, .hero-content { grid-area: 1 / 1 / 2 / 2; }
+
+.hero-image {
+	min-width: 360px;
+	img {
+		height: var(--height);
+		width: 100vw;
+		object-fit: cover;
+	}
+}
+
+.hero-overlay {
+	background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+	display: grid;
+	align-items: center;
+	font-size: 1.25rem;
+	@media screen and (min-width: 768px) {
+		font-size: 1.5rem;
+	}
+	h1 {
+		font-weight: 700;
+		margin-bottom: 0;
+		.gradient {
+			font-weight: 900;
+			background: var(--color-theme);
+			background: linear-gradient(to left, deepskyblue 0%, violet 75%, deeppink 100%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-shadow: 1px 1px;
+		}
+	}
+	p {
+		margin: 0;
+	}
+}

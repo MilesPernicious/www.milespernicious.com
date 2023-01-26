@@ -1,0 +1,46 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+import '../styles/nav.scss';
+---
+
+<header id="navigation">
+	<nav class="menu container -row">
+		<a href="/" class="brand-link">
+			<img src="https://picsum.photos/80" height="80" width="80" class="brand-logo">
+			Miles Pernicious
+		</a>
+		<button type="button" id="hamburger" aria-controls="menu-content" aria-label="Toggle Menu" aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<div id="menu-content" aria-labelledby="hamburger">
+			<ul class="menu-items">
+				<li><a href="/blog">Blog</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<script>
+	const hamburger = document.getElementById("hamburger");
+	const menu = document.getElementById("menu-content");
+	const links = menu && menu.querySelector(".menu-items");
+	if (hamburger && menu && links) {
+		const toggleExpanded = function() {
+			const ariaExpanded = !(hamburger.getAttribute("aria-expanded") === "true");
+
+			hamburger.setAttribute("aria-expanded", ariaExpanded.toString());
+		};
+
+		hamburger.addEventListener("click", toggleExpanded);
+		links.addEventListener("click", (e) => e.stopPropagation());
+		menu.addEventListener("click", toggleExpanded);
+	}
+</script>
