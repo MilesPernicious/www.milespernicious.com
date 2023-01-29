@@ -42,4 +42,7 @@ html, body {
 
 main {
 	min-height: calc(100vh - var(--miles-footer-size));
+	>.container > h1 {
+		margin-top: 2rem;
+	}
 }
