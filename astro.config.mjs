@@ -5,4 +5,5 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
 	site: 'https://www.milespernicious.com',
 	integrations: [mdx()],
+	publicDir: "./assets",
 });
