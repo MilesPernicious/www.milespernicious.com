@@ -39,3 +39,7 @@ html, body {
 	max-height: 100vh;
 	box-sizing: border-box;
 }
+
+main {
+	min-height: calc(100vh - var(--miles-footer-size));
+}
