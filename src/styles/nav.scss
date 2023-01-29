@@ -32,6 +32,14 @@ $navbarBreakpoint: 640px;
         margin-right: 0.5em;
     }
 
+	.brand-link {
+		font-family: 'Kanit';
+		font-size: 1.5em;
+		line-height: 0.9em;
+		font-variant-caps: small-caps;
+		text-shadow: -2px 2px 2px black;
+	}
+
     #hamburger {
         display: flex;
         flex-direction: column;

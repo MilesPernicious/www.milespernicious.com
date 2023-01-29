@@ -11,6 +11,8 @@
 @use "@fylgja/section";
 @use "@fylgja/button";
 
+@import './fonts.scss';
+
 :root {
 	--color-theme: #00326b;
 	--color-on-theme: white;
@@ -28,6 +30,8 @@
 
 	--miles-header-size: 100px;
 	--miles-footer-size: 60px;
+	--family-main: "Commissioner";
+	--family-header: "Rock Salt";
 }
 
 html, body {
