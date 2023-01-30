@@ -1,0 +1,58 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DateFormat from '../../components/DateFormat.astro';
+import dayjs from 'dayjs';
+
+import { getCollection } from 'astro:content';
+const coll = await getCollection('blog');
+const posts = coll.sort((a, b) => dayjs(b.data.publishDate).unix() - dayjs(a.data.publishDate).unix()).filter(p => !p.data.draft);
+
+---
+
+<BaseLayout title="Blog Posts" description="A list of the most recent blog posts from Miles">
+	<div class="container">
+	<h1 id="top">Blog Posts</h1>
+	{posts.map(post => (
+		<article>
+			<div class="headline"><a href={`/posts/${post.slug}`}>{post.data.title}</a></div>
+			<div class="date">Published on <DateFormat date={post.data.publishDate} /></div>
+			<div class="tags">
+				{post.data.tags && post.data.tags.map(tag => (
+					<span class="badge">{tag}</span>
+				))}
+			</div>
+			<div class="summary">{post.data.summary}</div>
+		</article>
+	))}
+	</div>
+</BaseLayout>
+
+<style lang="scss">
+	@use "@fylgja/badge";
+	h1#top {
+		text-align: center;
+		font-size: 3rem;
+		margin-top: 2rem;
+	}
+	article {
+		margin-bottom: 2.2rem;
+		.date {
+			font-size: 0.8em;
+		}
+
+		.badge {
+			margin-right: 1rem;
+			&:empty {
+				display: none;
+			}
+		}
+
+		.headline { font-size: x-large }
+	}
+</style>
