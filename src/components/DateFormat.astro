@@ -1,0 +1,22 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+import { SiteConfig } from '../config';
+
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import TimeZone from 'dayjs/plugin/timezone';
+
+dayjs.extend(utc);
+dayjs.extend(TimeZone);
+
+const { date, format = 'MMM D, YYYY' } = Astro.props;
+
+const when = dayjs(date, SiteConfig.timezone);
+
+---
+{when.format(format)}
