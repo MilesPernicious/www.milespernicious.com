@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/mdx": "^0.15.1",
     "astro": "^2.0.1",
+    "dayjs": "^1.11.7",
     "fylgja": "^1.2.6",
     "sass": "^1.57.1"
   }
