@@ -45,3 +45,8 @@ $latin-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+0
 	src: url(https://fonts.gstatic.com/s/rocksalt/v18/MwQ0bhv11fWD6QsAVOZrt0M6.woff2) format('woff2');
 	unicode-range: $latin-range;
 }
+
+:root {
+	--family-main: "Commissioner";
+	--family-header: "Rock Salt";
+}
