@@ -14,7 +14,8 @@ const blogCollection = defineCollection({
 		description: z.string().min(50).max(160),
 		author: z.string().default('AUTHOR'),
 		tags: z.array(z.string()).optional(),
-		publishDate: z.string(),
+		date: z.string(),
+		dateUpdated: z.string().optional(),
 		license: z.string().default('CC-BY-SA-4.0'),
 		draft: z.boolean().default(false),
 		featuredImage: z.object({

@@ -11,7 +11,7 @@ import dayjs from 'dayjs';
 
 import { getCollection } from 'astro:content';
 const coll = await getCollection('blog');
-const posts = coll.sort((a, b) => dayjs(b.data.publishDate).unix() - dayjs(a.data.publishDate).unix()).filter(p => !p.data.draft);
+const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date).unix()).filter(p => !p.data.draft);
 
 ---
 
@@ -21,7 +21,7 @@ const posts = coll.sort((a, b) => dayjs(b.data.publishDate).unix() - dayjs(a.dat
 	{posts.map(post => (
 		<article>
 			<div class="headline"><a href={`/posts/${post.slug}`}>{post.data.title}</a></div>
-			<div class="date">Published on <DateFormat date={post.data.publishDate} /></div>
+			<div class="date">Published on <DateFormat date={post.data.date} /></div>
 			<div class="tags">
 				{post.data.tags && post.data.tags.map(tag => (
 					<span class="badge">{tag}</span>
