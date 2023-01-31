@@ -6,13 +6,27 @@
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
+import DateFormat from '@components/DateFormat.astro';
 
-const { title, description } = Astro.props;
+const { title, description, subtitle, date, dateUpdated } = Astro.props;
+const showUpdated = !!dateUpdated;
 
 ---
 
 <BaseLayout {title} {description}>
 	<article class="container">
+		<h1>{title}</h1>
+		<h2 id="subtitle">{subtitle}</h2>
+		<p class:list={['text-small', 'date', { published: !showUpdated, updated: showUpdated }]}>
+			{showUpdated ? "Updated on " : "Published on "}
+			<DateFormat date={showUpdated ? dateUpdated : date} />
+		</p>
 		<slot />
 	</article>
 </BaseLayout>
+<style>
+	h2#subtitle {
+		font-family: var(--family-main);
+		font-weight: bold;
+	}
+</style>
