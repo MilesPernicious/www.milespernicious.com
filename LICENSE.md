@@ -23,6 +23,14 @@ SOFTWARE.
 
 """
 Note:
+The above license does not apply to files within the assets/ directory or
+any sub-directories of the assets/ directory.  Please see their respective
+LICENSE files for more information.
+"""
+
+
+"""
+Note:
 Individual files contain the following tag instead of the full license text.
 
     SPDX-License-Identifier: MIT
