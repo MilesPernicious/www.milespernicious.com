@@ -39,11 +39,11 @@ section.hero {
 		font-size: 1.5rem;
 	}
 	h1 {
-		font-family: 'Commissioner';
+		font-family: var(--family-main);
 		font-weight: 700;
 		margin-bottom: 0;
 		.gradient {
-			font-family: 'Rock Salt';
+			font-family: var(--family-header);
 			font-variant-caps: small-caps;
 			font-weight: 900;
 			background: var(--color-theme);
@@ -55,7 +55,7 @@ section.hero {
 		}
 	}
 	p {
-		font-family: 'Commissioner';
+		font-family: var(--family-main);
 		margin: 0;
 	}
 }

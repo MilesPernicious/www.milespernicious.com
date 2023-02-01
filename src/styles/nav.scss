@@ -33,7 +33,7 @@ $navbarBreakpoint: 640px;
 	}
 
 	.brand-link {
-		font-family: 'Kanit';
+		font-family: var(--family-logo);
 		font-size: 1.5em;
 		line-height: 0.9em;
 		font-variant-caps: small-caps;
