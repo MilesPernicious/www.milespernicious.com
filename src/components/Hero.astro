@@ -7,6 +7,7 @@
  */
 
 import "@styles/hero.scss";
+import SocialIconLink from "@components/SocialIconLink.astro";
 
 interface Props {
 	mainText: string,
@@ -27,9 +28,19 @@ const { mainText, mainTextGradient, subText } = Astro.props;
 			<h1>{mainText} <span class="gradient">{mainTextGradient}</span></h1>
 			<p class="h5">{subText}</p>
 			<hr />
-			<div>
-				Social Links
+			<div class="socials">
+				<SocialIconLink href="https://twitch.tv/MilesPernicious" name="Twitch" />
+				<SocialIconLink href="https://discord.gg/aloha" name="Discord" />
+				<SocialIconLink href="https://mastodon.world/@MilesPernicious" name="Mastodon" />
+				<SocialIconLink href="https://youtube.com/MilesPernicious" name="YouTube" />
+				<SocialIconLink href="https://github.com/MilesPernicious" name="GitHub" />
 			</div>
 		</div>
 	</div>
 </section>
+<style lang="scss">
+	div.socials {
+		display: flex;
+		justify-content: center;
+	}
+</style>

@@ -1,0 +1,30 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+import Icon from 'astro-icon';
+
+interface Props {
+	name: string;
+	href: string;
+}
+
+const { name, href } = Astro.props;
+const icon = name.toLowerCase();
+---
+
+<a {href} title={name} rel="me"><Icon pack="simple-icons" name={icon} /></a>
+
+<style lang="scss">
+	[astro-icon] {
+		margin-right: 8px;
+		height: 36px;
+		width: 36px;
+		&:hover {
+			color: white;
+		}
+	}
+</style>
