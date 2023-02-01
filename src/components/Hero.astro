@@ -7,6 +7,14 @@
  */
 
 import "@styles/hero.scss";
+
+interface Props {
+	mainText: string,
+	mainTextGradient: string,
+	subText: string
+}
+
+const { mainText, mainTextGradient, subText } = Astro.props;
 ---
 
 <section class="hero">
@@ -16,8 +24,8 @@ import "@styles/hero.scss";
 	<div class="hero-overlay"></div>
 	<div class="hero-content">
 		<div class="container">
-			<h1>Creating with <span class="gradient">Aloha!</span></h1>
-			<p class="h5">Everyone can use some extra aloha in their life! Miles Pernicious is a family-friendly creator, musician, and developer from Hawaii.</p>
+			<h1>{mainText} <span class="gradient">{mainTextGradient}</span></h1>
+			<p class="h5">{subText}</p>
 			<hr />
 			<div>
 				Social Links
