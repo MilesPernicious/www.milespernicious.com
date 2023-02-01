@@ -14,7 +14,7 @@ import { SiteConfig } from "@config";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description } = Astro.props;
+const { title, description, heropage } = Astro.props;
 
 let pageTitle = title;
 let pageDescription = description || SiteConfig.description;
@@ -40,7 +40,7 @@ else {
 		<script data-goatcounter="https://miles.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 	</head>
 	<body>
-		<Header />
+		<Header {heropage} />
 		<main>
 			<slot />
 		</main>

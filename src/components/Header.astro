@@ -6,9 +6,11 @@
  */
 
 import '@styles/nav.scss';
+
+const { heropage } = Astro.props;
 ---
 
-<header id="navigation">
+<header id="navigation" class:list={[{ 'has-hero': heropage }]}>
 	<nav class="menu container -row">
 		<a href="/" class="brand-link">
 			<img src="https://ik.imagekit.io/aloha/tr:orig-true/logo80.webp" height="80" width="80" class="brand-logo" alt="">

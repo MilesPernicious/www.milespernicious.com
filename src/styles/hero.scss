@@ -5,7 +5,7 @@
  */
 
 section.hero {
-	--height: calc(100vh - var(--miles-header-size) - var(--miles-footer-size)); // viewport - header - footer
+	--height: calc(100vh - var(--miles-footer-size));
 	--bg: var(--color-theme);
 	--color: var(--color-on-theme);
 
