@@ -11,8 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.15.1",
-    "astro": "^2.0.1",
+    "@astrojs/mdx": "^0.16.0",
+    "astro": "^2.0.5",
     "astro-icon": "^0.8.0",
     "dayjs": "^1.11.7",
     "fylgja": "^1.2.6",
