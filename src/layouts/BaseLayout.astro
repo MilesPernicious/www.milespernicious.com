@@ -7,12 +7,11 @@
 
 import "@styles/main.scss";
 
+import Metadata from "@layouts/Metadata.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
 import { SiteConfig } from "@config";
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, heropage } = Astro.props;
 
@@ -28,23 +27,8 @@ else {
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<title>{pageTitle}</title>
-		<meta name="title" content={pageTitle} />
-		<meta name="description" content={pageDescription} />
-
-		<link rel="canonical" href={canonicalURL} />
-
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="manifest" href="/site.webmanifest">
-
-		<meta name="theme-color" content="#00326b" />
-
-		<script data-goatcounter="https://miles.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+	<head>
+		<Metadata title={pageTitle} description={pageDescription} />
 	</head>
 	<body>
 		<Header {heropage} />
