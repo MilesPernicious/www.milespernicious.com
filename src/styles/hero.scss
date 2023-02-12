@@ -6,6 +6,7 @@
 
 section.hero {
 	--height: 100%;
+	--color: var(--color-on-theme);
 
 	display: grid;
 	grid-template-columns: 1fr;
