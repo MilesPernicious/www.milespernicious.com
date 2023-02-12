@@ -8,17 +8,16 @@
 const year = new Date().getFullYear();
 ---
 
-<footer>
+<div>
 	Privacy Policy | Site Index | Trademark Policy | Feedback<br>
 	<small>&copy; {year} Miles Pernicious</small>
-</footer>
-<style>
-	footer {
-		height: var(--miles-footer-size);
-		max-height: var(--miles-footer-size);
+</div>
+
+<style lang="scss">
+	div {
+		height: 100%;
 		background-color: var(--color-theme);
 		color: var(--color-on-theme);
 		text-align: center;
-		box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.15);
 	}
 </style>

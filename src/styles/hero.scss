@@ -5,9 +5,7 @@
  */
 
 section.hero {
-	--height: calc(100vh - var(--miles-footer-size));
-	--bg: var(--color-theme);
-	--color: var(--color-on-theme);
+	--height: 100%;
 
 	display: grid;
 	grid-template-columns: 1fr;

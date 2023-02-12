@@ -37,16 +37,3 @@ html, body {
 	max-height: 100vh;
 	box-sizing: border-box;
 }
-
-main {
-	min-height: calc(100vh - var(--miles-footer-size));
-	>.container {
-		>h1:first-of-type {
-			margin-top: 2rem;
-		}
-		padding-bottom: 2rem;
-	}
-	@media (min-width: 1024px) {
-		p { font-size: 1.1rem;}
-	}
-}
