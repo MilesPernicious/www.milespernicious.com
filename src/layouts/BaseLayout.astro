@@ -9,13 +9,12 @@ import "@styles/main.scss";
 
 import Metadata from "@layouts/Metadata.astro";
 
-import Backdrop from '@components/layout/Backdrop.astro';
 import Masthead from '@components/layout/Masthead.astro';
 import Footer from "@components/layout/Footer.astro";
 
 import { SiteConfig } from "@config";
 
-const { title, description, heropage } = Astro.props;
+const { title, description } = Astro.props;
 
 let pageTitle = title;
 let pageDescription = description || SiteConfig.description;
@@ -33,8 +32,8 @@ else {
 		<Metadata title={pageTitle} description={pageDescription} />
 	</head>
 	<body id="body">
-		<div id="backdrop"><Backdrop /></div>
-		<header id="masthead"><Masthead {heropage} /></header>
+		<div id="backdrop"><slot name="backdrop" /></div>
+		<header id="masthead"><Masthead /></header>
 		<div id="content">
 			<slot />
 		</div>

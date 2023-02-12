@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import BaseLayout from '@layouts/BaseLayout.astro';
+import Layout from '@layouts/PageLayout.astro';
 import DateFormat from '@components/DateFormat.astro';
 
 const { title, description, subtitle, date, dateUpdated } = Astro.props;
@@ -13,7 +13,7 @@ const showUpdated = !!dateUpdated;
 
 ---
 
-<BaseLayout {title} {description}>
+<Layout {title} {description}>
 	<article class="container">
 		<h1>{title}</h1>
 		<h2 id="subtitle">{subtitle}</h2>
@@ -23,7 +23,7 @@ const showUpdated = !!dateUpdated;
 		</p>
 		<slot />
 	</article>
-</BaseLayout>
+</Layout>
 <style>
 	h2#subtitle {
 		font-family: var(--family-main);

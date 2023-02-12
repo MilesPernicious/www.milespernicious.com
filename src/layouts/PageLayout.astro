@@ -1,0 +1,15 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout {title} {description}>
+	<slot />
+</BaseLayout>

@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import BaseLayout from '@layouts/BaseLayout.astro';
+import Layout from '@layouts/PageLayout.astro';
 import DateFormat from '@components/DateFormat.astro';
 import dayjs from 'dayjs';
 
@@ -15,7 +15,7 @@ const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date)
 
 ---
 
-<BaseLayout title="Blog Posts" description="A list of the most recent blog posts from Miles">
+<Layout title="Blog Posts" description="A list of the most recent blog posts from Miles">
 	<div class="container">
 	<h1 id="top">Blog Posts</h1>
 	{posts.map(post => (
@@ -31,7 +31,7 @@ const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date)
 		</article>
 	))}
 	</div>
-</BaseLayout>
+</Layout>
 
 <style lang="scss">
 	@use "@fylgja/badge";

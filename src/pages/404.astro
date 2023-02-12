@@ -5,14 +5,16 @@
  * SPDX-License-Identifier: MIT
  */
 
-import BaseLayout from '@layouts/BaseLayout.astro';
+import Layout from '@layouts/HeroLayout.astro';
 import Hero from '@components/layout/Hero.astro';
 
 const mainText = "";
 const mainTextGradient = "Error 808";
 const subText = "Your page wasn't found, but since 808 is the area code for Hawaii, you get an error page that's twice as good as a standard 404 page!";
+
+const title = "808 | Page Not Found";
 ---
 
-<BaseLayout>
+<Layout {title}>
 	<Hero {mainText} {mainTextGradient} {subText} />
-</BaseLayout>
+</Layout>
