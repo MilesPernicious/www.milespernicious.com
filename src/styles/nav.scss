@@ -29,7 +29,6 @@ $navbarBreakpoint: 640px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		height: 100%;
 	}
 
 	.brand-logo {
@@ -105,7 +104,7 @@ $navbarBreakpoint: 640px;
 	}
 
 	#hamburger[aria-expanded="true"] + #menu-content {
-		background-color: rgba(0, 0, 0, 0.95);
+		background-color: rgba(0, 0, 0, 0.5);
 		opacity: 1;
 		visibility: visible;
 		.menu-items {
@@ -126,6 +125,7 @@ $navbarBreakpoint: 640px;
 		border-radius: 5px;
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 
+		background-color: #2A2A2A;
 		list-style: none;
 	}
 
@@ -145,6 +145,8 @@ $navbarBreakpoint: 640px;
 			margin: 0;
 			padding: 0;
 			box-shadow: none;
+
+			background-color:inherit;
 		}
 	}
 }
