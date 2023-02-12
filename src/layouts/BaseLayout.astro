@@ -33,7 +33,9 @@ else {
 	</head>
 	<body id="body">
 		<div id="backdrop"><slot name="backdrop" /></div>
-		<header id="masthead"><Masthead /></header>
+		<header id="masthead">
+			<Masthead class:list={[{ 'hero-surface-overlay': Astro.slots.has('backdrop') }]} />
+		</header>
 		<div id="content">
 			<slot />
 		</div>

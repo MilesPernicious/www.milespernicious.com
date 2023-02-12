@@ -6,8 +6,12 @@
  */
 
 import '@styles/nav.scss';
+import type { HTMLAttributes } from "astro/types";
+
+export type Props = HTMLAttributes<"div">;
+const { 'class:list': classList } = Astro.props as Props;
 ---
-<div id="navigation">
+<div id="navigation" class:list={classList}>
 	<nav class="menu container -row">
 		<a href="/" class="brand-link">
 			<img src="https://ik.imagekit.io/aloha/tr:orig-true/logo80.webp" height="80" width="80" class="brand-logo" alt="">

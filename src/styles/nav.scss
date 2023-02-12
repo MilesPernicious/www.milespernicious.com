@@ -14,8 +14,8 @@ $navbarBreakpoint: 640px;
 	height: var(--miles-header-size);
 	background-color: var(--color-theme);
 
-	&.has-hero {
-		background-color: transparent;
+	&.hero-surface-overlay {
+		background-color: var(--miles-hero-surface-overlay-bg);
 	}
 
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
