@@ -11,5 +11,21 @@ const { title, description } = Astro.props;
 ---
 
 <BaseLayout {title} {description}>
-	<slot />
+	<div id="page-contents">
+		<slot />
+	</div>
 </BaseLayout>
+
+<style lang="scss">
+	div#page-contents {
+		padding: 1rem;
+		--font-size: clamp(1rem, 0.45vw + 0.89rem, 1.25rem);
+		font-size: var(--font-size);
+		margin: 0 auto;
+		max-width: 75ch;
+		@media (min-width: 640px) {
+			padding: 2.5rem;
+		}
+	}
+
+</style>
