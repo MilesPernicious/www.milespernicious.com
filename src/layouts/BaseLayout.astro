@@ -48,8 +48,11 @@ else {
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-template-rows: 100px 1fr 60px;
-		grid-column-gap: 0px;
-		grid-row-gap: 0px;
+		column-gap: 0px;
+		row-gap: 0px;
+		@media (max-width: 640px) {
+			grid-template-rows: 100px 1fr 100px;
+		}
 	}
 
 	#backdrop { grid-area: 1 / 1 / 4 / 2; }
