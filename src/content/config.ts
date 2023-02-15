@@ -26,6 +26,15 @@ const blogCollection = defineCollection({
 	})
 });
 
+const legalCollection = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		dateUpdated: z.string(),
+		description: z.string(),
+	})
+})
+
 export const collections = {
 	'blog': blogCollection,
+	'legal': legalCollection,
 }
