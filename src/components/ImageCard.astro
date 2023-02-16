@@ -1,0 +1,62 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+interface Props {
+	src: string,
+	alt: string,
+	caption: string,
+	credit: string,
+	full?: boolean,
+}
+const { src, alt, caption, credit } = Astro.props;
+
+const URLEndpoint = "https://ik.imagekit.io/aloha/";
+const transform = "tr:w-400,h-300,cm-at-max,fo-top";
+const transform2x = "tr:w-800,h-600,cm-at-max,fo-top";
+const route = Astro.url.pathname + (Astro.url.pathname.endsWith("/") ? "" : "/");
+
+const imgURL = URLEndpoint + transform + route + src;
+const imgURL2x = URLEndpoint + transform2x + route + src;
+
+const fullWidth = Astro.props.full !== undefined;
+
+let srcset;
+if (fullWidth) {
+	srcset = imgURL + " 400w," + imgURL2x + " 800w";
+}
+---
+
+<figure class:list={["card inline-flex", { full: Astro.props.full !== undefined }]}>
+	<img class="card-media" src={imgURL2x} {alt} {srcset} />
+	<figcaption class="card-content">{caption}
+		<div class="credit">{credit}</div>
+	</figcaption>
+</div>
+
+<style lang="scss">
+	@use "@fylgja/card";
+	figure.card {
+		width: 400px;
+		max-width: 95%;
+		@media (min-width: 640px) {
+			float: right;
+			margin-left: 1.5rem;
+
+			&.full {
+				width: 800px;
+				float: none;
+				margin: 1.5rem auto;
+			}
+		}
+		figcaption {
+			font-size: smaller;
+			.credit {
+				font-size: smaller;
+			}
+		}
+	}
+</style>
