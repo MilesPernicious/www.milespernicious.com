@@ -1,0 +1,41 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+---
+
+<aside class="pullquote">
+	<div class="card card-content">
+		<p class="h3">
+			<slot/>
+		</p>
+	</div>
+</div>
+
+<style lang="scss">
+	@use "@fylgja/card";
+	aside.pullquote {
+		>.card {
+			>p.h3 {
+				&::before {
+					float: left;
+					font-size: 5rem;
+					line-height: 2rem;
+					padding: 1rem 1rem;
+					content: '“';
+				}
+				&::after {
+					float: right;
+					font-size: 5rem;
+					line-height: 2rem;
+					padding: 1rem 1rem 0 0;
+					content: '”';
+				}
+			}
+		}
+		margin: 1rem;
+	}
+</style>
