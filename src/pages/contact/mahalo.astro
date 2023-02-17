@@ -1,0 +1,28 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+ import Layout from '@layouts/PageLayout.astro';
+
+const title = "Mahalo"
+const description = "Form Submission.  Thank You for your Feedback!"
+
+---
+
+<Layout {title} {description}>
+
+	<h1>Mahalo!</h1>
+	<p>Thank you for taking the time to provide feedback!  We will reply to you as soon as we are able, usually with 48 hours.</p>
+
+	<a class="btn -theme" href="/">Home Page</a> <a class="btn -outline" href="/posts">Blog Posts</a>
+
+</Layout>
+
+<style lang="scss">
+	a.btn {
+		margin: 1rem;
+	}
+</style>
