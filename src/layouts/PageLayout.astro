@@ -7,10 +7,10 @@
 
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-const { title, description } = Astro.props;
+const { title, description, noindex } = Astro.props;
 ---
 
-<BaseLayout {title} {description}>
+<BaseLayout {title} {description} {noindex}>
 	<div id="page-contents">
 		<slot />
 	</div>

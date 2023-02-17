@@ -7,7 +7,7 @@
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
 
 ---
 <meta charset="utf-8" />
@@ -28,5 +28,7 @@ const { title, description } = Astro.props;
 
 <meta name="version" content={APP_VERSION} />
 <meta name="generator" content={Astro.generator} />
+
+{noindex && <meta name="robots" content="noindex">}
 
 <script data-goatcounter="https://miles.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

@@ -14,7 +14,7 @@ import Footer from "@components/layout/Footer.astro";
 
 import { SiteConfig } from "@config";
 
-const { title, description } = Astro.props;
+const { title, description, noindex } = Astro.props;
 
 let pageTitle = title;
 let pageDescription = description || SiteConfig.description;
@@ -29,7 +29,7 @@ else {
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<Metadata title={pageTitle} description={pageDescription} />
+		<Metadata title={pageTitle} description={pageDescription} {noindex} />
 	</head>
 	<body id="body">
 		<div id="backdrop"><slot name="backdrop" /></div>
