@@ -7,7 +7,9 @@ export default defineConfig({
 	site: 'https://www.milespernicious.com',
 	integrations: [
 		mdx(),
-		sitemap(),
+		sitemap({
+			filter: (page) => page !== 'https://www.milespernicious.com/contact/mahalo',
+		}),
 	],
 	publicDir: "./assets",
 	vite: {
