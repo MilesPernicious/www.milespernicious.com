@@ -23,20 +23,20 @@ const formEndpoint = "https://form.taxi/s/3qjy4gdw";
 	<form action={formEndpoint} method="post" accept-charset="UTF-8">
 		<p>
 			<label for="name">Your Name <em>(optional)</em></label>
-			<input id="name" type="text" placeholder="Anonymous" />
+			<input id="name" name="name" type="text" placeholder="Anonymous" />
 		</p>
 
 		<p>
 			<label for="email">Your Email</label>
-			<input id="email" type="email" placeholder="user@gmail.com" />
+			<input id="email" name="email" type="email" placeholder="user@gmail.com" required />
 		</p>
 		<p>
 			<label for="comments">Message</label>
-			<textarea id="comments" placeholder="Comments" rows="5" required></textarea>
+			<textarea id="comments" name="comments" placeholder="Comments" rows="5" required></textarea>
 		</p>
 
 		<p class="consent">
-			<input type="checkbox" id="consent" required>
+			<input type="checkbox" id="consent" name="consent" required />
 			<label for="consent"><small>I have read and agree to the <a href="/privacy">Privacy Policy</a> and am of legal age.</small></label>
 		</p>
 
@@ -44,7 +44,7 @@ const formEndpoint = "https://form.taxi/s/3qjy4gdw";
 
 		<p class="verification">
 			<label for="website">Verify you are human by leaving this field empty</label>
-			<input type="url" id="website" tabindex="-1" autocomplete=false>
+			<input type="url" id="website" name="website" tabindex="-1" autocomplete=false value="" />
 		</p>
 	</form>
 
