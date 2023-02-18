@@ -14,7 +14,9 @@ const { 'class:list': classList } = Astro.props as Props;
 <div id="navigation" class:list={classList}>
 	<nav class="menu container -row">
 		<a href="/" class="brand-link">
-			<img src="https://ik.imagekit.io/aloha/tr:orig-true/logo80.webp" height="80" width="80" class="brand-logo" alt="">
+			<img src="https://ik.imagekit.io/aloha/tr:orig-true/logo80.webp"
+				srcset="https://ik.imagekit.io/aloha/tr:orig-true/logo80.webp 1x, https://ik.imagekit.io/aloha/tr:orig-true/logo160.webp 2x"
+				height="80" width="80" class="brand-logo" alt="" />
 			Miles Pernicious
 		</a>
 		<button type="button" id="hamburger" aria-controls="menu-content" aria-label="Toggle Menu" aria-expanded="false">
