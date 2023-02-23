@@ -6,7 +6,6 @@
  */
 
 import Layout from '@layouts/PageLayout.astro';
-import "@fylgja/form";
 
 const title = "Contact Us"
 const description = "Use this form to provide feedback about your experience on our website!"
@@ -51,6 +50,7 @@ const formEndpoint = "https://form.taxi/s/3qjy4gdw";
 </Layout>
 
 <style lang="scss">
+	@use "@fylgja/form";
 	p.consent {
 		display: grid;
 		grid-template-columns: 1rem 1fr;
