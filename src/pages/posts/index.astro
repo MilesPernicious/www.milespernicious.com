@@ -15,9 +15,9 @@ const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date)
 
 ---
 
-<Layout title="Blog Posts" description="A list of the most recent blog posts from Miles">
+<Layout title="Blog posts" description="A list of the most recent blog posts from Miles">
 	<div class="container">
-	<h1 id="top">Blog Posts</h1>
+	<h1 id="top">Blog posts</h1>
 	{posts.map(post => (
 		<article>
 			<div class="headline"><a href={`/posts/${post.slug}`}>{post.data.title}</a></div>
