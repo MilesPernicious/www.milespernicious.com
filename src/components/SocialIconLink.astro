@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import Icon from 'astro-icon';
+import Svg from '@jasikpark/astro-svg-loader';
 
 interface Props {
 	name: string;
@@ -16,10 +16,31 @@ const { name, href } = Astro.props;
 const icon = "logo-" + name.toLowerCase();
 ---
 
-<a {href} title={name} rel="me"><Icon pack="ion" name={icon} /></a>
+<a {href} rel="me">
+	<!-- Unfortunately, dynamic imports are a problem, so hardcode these for now -->
+	{name === "Discord" &&
+		<Svg src={import("@svg-icons/ionicons-solid/logo-discord.svg?raw")} aria-label={name} />
+	}
+
+	{name === "GitHub" &&
+		<Svg src={import("@svg-icons/ionicons-solid/logo-github.svg?raw")} aria-label={name} />
+	}
+
+	{name === "Mastodon" &&
+		<Svg src={import("@svg-icons/ionicons-solid/logo-mastodon.svg?raw")} aria-label={name} />
+	}
+
+	{name === "Twitch" &&
+		<Svg src={import("@svg-icons/ionicons-solid/logo-twitch.svg?raw")} aria-label={name} />
+	}
+
+	{name === "YouTube" &&
+		<Svg src={import("@svg-icons/ionicons-solid/logo-youtube.svg?raw")} aria-label={name} />
+	}
+</a>
 
 <style lang="scss">
-	[astro-icon] {
+	svg {
 		margin-right: 8px;
 		height: 36px;
 		width: 36px;
