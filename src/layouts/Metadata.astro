@@ -31,4 +31,7 @@ const { title, description, noindex = false } = Astro.props;
 
 {noindex && <meta name="robots" content="noindex">}
 
+{import.meta.env.PROD === true &&
 <script data-goatcounter="https://miles.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script async defer src="https://analytics.umami.is/script.js" data-website-id="b39d1bb0-8d36-47d1-b78f-dc1e19fdc4c2"></script>
+}
