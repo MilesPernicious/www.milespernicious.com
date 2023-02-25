@@ -1,0 +1,40 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+import Layout from '@layouts/PageLayout.astro';
+import DateFormat from '@components/DateFormat.astro';
+import dayjs from 'dayjs';
+
+import { getCollection } from 'astro:content';
+const coll = await getCollection('schedule');
+const months = coll.sort((a: any, b: any) => dayjs(b.data.month).unix() - dayjs(a.data.month).unix());
+
+---
+
+<Layout title="Miles' schedule" description="When is Miles' next stream?">
+	<div class="container">
+	<h1 id="top">Miles' schedule</h1>
+	{months.map((schedule: any) => (
+		<article>
+			<div class="headline"><a href={`/schedule/${schedule.slug}`}>{schedule.data.month}</a></div>
+		</article>
+	))}
+	</div>
+</Layout>
+
+<style lang="scss">
+	@use "@fylgja/badge";
+	h1#top {
+		text-align: center;
+		font-size: 3rem;
+		margin-top: 2rem;
+	}
+	article {
+		margin-bottom: 2.2rem;
+		.headline { font-size: x-large }
+	}
+</style>

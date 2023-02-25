@@ -32,9 +32,35 @@ const legalCollection = defineCollection({
 		dateUpdated: z.string(),
 		description: z.string(),
 	})
-})
+});
+
+const scheduleCollection = defineCollection({
+	schema: z.object({
+		month: z.string(),
+		events: z.array(z.object({
+			event: z.object({
+				start: z.string().transform((startTime, ctx) => {
+					const parsed = Date.parse(startTime);
+					if (Number.isNaN(parsed)) {
+						ctx.addIssue({
+							code: z.ZodIssueCode.invalid_date,
+							message: "Start Date must be a valid date string",
+						});
+						return z.NEVER;
+					}
+					return startTime;
+				}),
+				duration: z.string(),
+				game: z.string(),
+				platform: z.string(),
+				plan: z.string(),
+			}),
+		})),
+	})
+});
 
 export const collections = {
 	'blog': blogCollection,
 	'legal': legalCollection,
+	'schedule': scheduleCollection,
 }
