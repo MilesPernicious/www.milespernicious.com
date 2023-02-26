@@ -9,6 +9,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, noindex = false } = Astro.props;
 
+const suffix = import.meta.env.DEV === true ? "-dev" : "";
+const version = APP_VERSION + suffix;
 ---
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -26,7 +28,7 @@ const { title, description, noindex = false } = Astro.props;
 
 <meta name="theme-color" content="#00326b" />
 
-<meta name="version" content={APP_VERSION} />
+<meta name="version" content={version} />
 <meta name="generator" content={Astro.generator} />
 
 {noindex && <meta name="robots" content="noindex">}
