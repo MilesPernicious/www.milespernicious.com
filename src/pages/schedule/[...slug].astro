@@ -26,7 +26,7 @@ const { schedule } = Astro.props;
 <Layout {...schedule.data}>
 	<h1>Schedule for {schedule.data.month}</h1>
 
-	{schedule.data.events.map((sked) =>
+	{schedule.data.events.map((sked: any) =>
 	<div class="stream">
 		<div class="when"><DateIcon date={sked.event.start} /></div>
 		<div class="time"><small><DateFormat date={sked.event.start} format="h:mm A" /></small></div>
