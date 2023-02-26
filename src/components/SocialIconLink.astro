@@ -13,30 +13,34 @@ interface Props {
 }
 
 const { name, href } = Astro.props;
-const icon = "logo-" + name.toLowerCase();
+
+// The imports need to be a string literal so we can't dynamically generate
+// the file names
+let svgIcon;
+
+switch (name) {
+	case "Discord":
+		svgIcon = import("@svg-icons/ionicons-solid/logo-discord.svg?raw");
+		break;
+	case "GitHub":
+		svgIcon = import("@svg-icons/ionicons-solid/logo-github.svg?raw");
+		break;
+	case "Mastodon":
+		svgIcon = import("@svg-icons/ionicons-solid/logo-mastodon.svg?raw");
+		break;
+	case "Twitch":
+		svgIcon = import("@svg-icons/ionicons-solid/logo-twitch.svg?raw");
+		break;
+	case "YouTube":
+		svgIcon = import("@svg-icons/ionicons-solid/logo-youtube.svg?raw");
+		break;
+	default:
+		throw Error("Unknown SVG icon")
+}
 ---
 
 <a {href} rel="me">
-	<!-- Unfortunately, dynamic imports are a problem, so hardcode these for now -->
-	{name === "Discord" &&
-		<Svg src={import("@svg-icons/ionicons-solid/logo-discord.svg?raw")} aria-label={name} />
-	}
-
-	{name === "GitHub" &&
-		<Svg src={import("@svg-icons/ionicons-solid/logo-github.svg?raw")} aria-label={name} />
-	}
-
-	{name === "Mastodon" &&
-		<Svg src={import("@svg-icons/ionicons-solid/logo-mastodon.svg?raw")} aria-label={name} />
-	}
-
-	{name === "Twitch" &&
-		<Svg src={import("@svg-icons/ionicons-solid/logo-twitch.svg?raw")} aria-label={name} />
-	}
-
-	{name === "YouTube" &&
-		<Svg src={import("@svg-icons/ionicons-solid/logo-youtube.svg?raw")} aria-label={name} />
-	}
+	<Svg src={svgIcon} aria-label={name} />
 </a>
 
 <style lang="scss">
