@@ -1,0 +1,20 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+---
+
+<span class="badge"><slot /></span>
+
+<style lang="scss">
+	@use "@fylgja/badge";
+	.badge {
+		margin-right: 1rem;
+		&:empty {
+			display: none;
+		}
+	}
+</style>

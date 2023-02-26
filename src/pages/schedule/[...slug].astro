@@ -9,6 +9,7 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/PageLayout.astro";
 import DateIcon from "@components/DateIcon.astro";
 import DateFormat from "@components/DateFormat.astro";
+import Badge from "@components/Badge.astro";
 
 export async function getStaticPaths() {
 	const schedules = await getCollection("schedule");
@@ -30,7 +31,7 @@ const { schedule } = Astro.props;
 		<div class="when"><DateIcon date={sked.event.start} /></div>
 		<div class="time"><small><DateFormat date={sked.event.start} format="h:mm A" /></small></div>
 		<div class="what">
-			<p class="arch"><strong>{sked.event.game}</strong> <span class="badge">{sked.event.platform}</span></p>
+			<p class="arch"><strong>{sked.event.game}</strong> <Badge>{sked.event.platform}</Badge></p>
 			<p>{sked.event.plan}</p>
 		</div>
 	</div>
@@ -38,10 +39,6 @@ const { schedule } = Astro.props;
 </Layout>
 
 <style lang="scss">
-	@use "@fylgja/badge";
-	.badge {
-		margin-left: 1ex;
-	}
 	.stream {
 		display: grid;
 		grid-template-columns: 80px 1fr;

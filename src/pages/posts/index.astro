@@ -6,6 +6,8 @@
  */
 
 import Layout from '@layouts/PageLayout.astro';
+
+import Badge from "@components/Badge.astro";
 import DateFormat from '@components/DateFormat.astro';
 import dayjs from 'dayjs';
 
@@ -24,7 +26,7 @@ const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date)
 			<div class="date">Published on <DateFormat date={post.data.date} /></div>
 			<div class="tags">
 				{post.data.tags && post.data.tags.map(tag => (
-					<span class="badge">{tag}</span>
+					<Badge>{tag}</Badge>
 				))}
 			</div>
 			<div class="summary">{post.data.summary}</div>
@@ -34,7 +36,6 @@ const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date)
 </Layout>
 
 <style lang="scss">
-	@use "@fylgja/badge";
 	h1#top {
 		text-align: center;
 		font-size: 3rem;
@@ -44,13 +45,6 @@ const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date)
 		margin-bottom: 2.2rem;
 		.date {
 			font-size: 0.8em;
-		}
-
-		.badge {
-			margin-right: 1rem;
-			&:empty {
-				display: none;
-			}
 		}
 
 		.headline { font-size: x-large }
