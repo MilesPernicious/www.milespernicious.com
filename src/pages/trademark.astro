@@ -1,0 +1,22 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+import DateFormat from '@components/DateFormat.astro';
+import Layout from '@layouts/PageLayout.astro';
+import { getEntryBySlug } from 'astro:content';
+
+const page = await getEntryBySlug('legal', 'trademark');
+const { Content } = await page.render();
+---
+
+<Layout {...page.data}>
+	<article class="container">
+		<h1>{page.data.title}</h1>
+		<p>Last Updated: <DateFormat date={page.data.dateUpdated} /></p>
+		<Content />
+	</article>
+</Layout>
