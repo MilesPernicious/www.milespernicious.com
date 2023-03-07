@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import stylify from '@stylify/astro';
+import stylifyConfig from './stylify.config.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,6 +12,7 @@ export default defineConfig({
 		sitemap({
 			filter: (page) => page !== 'https://www.milespernicious.com/contact/mahalo',
 		}),
+		stylify(stylifyConfig),
 	],
 	publicDir: "./assets",
 	vite: {
