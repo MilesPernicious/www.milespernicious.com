@@ -40,16 +40,6 @@ switch (name) {
 ---
 
 <a {href} rel="me">
-	<Svg src={svgIcon} aria-label={name} />
+	<Svg src={svgIcon} aria-label={name}
+	     class="margin-right:8px height:36px width:36px color:$brand hover:color:$surface" />
 </a>
-
-<style lang="scss">
-	svg {
-		margin-right: 8px;
-		height: 36px;
-		width: 36px;
-		&:hover {
-			color: white;
-		}
-	}
-</style>
