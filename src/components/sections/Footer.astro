@@ -8,19 +8,11 @@
 const year = new Date().getFullYear();
 ---
 
-<div>
+<div class="height:100% text-align:center
+            background-color:$brand [&,a]{color:$white;text-decoration:none}">
 	<a href="/privacy">Privacy</a> |
 	<a href="/trademark">Trademarks</a> |
 	<a href="/contact">Contact</a>
 	<br>
 	<small>&copy; {year} Miles Pernicious</small>
 </div>
-
-<style lang="scss">
-	div, a:any-link, a:any-link:hover {
-		height: 100%;
-		background-color: var(--color-theme);
-		color: var(--color-on-theme);
-		text-align: center;
-	}
-</style>
