@@ -7,13 +7,9 @@
 
 ---
 
-<span class="badge"><slot /></span>
-
-<style lang="scss">
-	.badge {
-		margin-right: 1rem;
-		&:empty {
-			display: none;
-		}
-	}
-</style>
+<span class="display:inline-flex align-items:center justify-content:center
+             font-size:$font-size-0 border-radius:$radius
+             background-color:$surface-2 color:$text
+             padding:.25rem_.625rem margin-right:0.5rem
+             :empty:display:none"
+><slot /></span>
