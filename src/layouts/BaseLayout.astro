@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import "@styles/main.scss";
+import "@styles/fonts.scss";
 
 import Metadata from "@components/misc/Metadata.astro";
 
@@ -27,36 +27,19 @@ else {
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="color-scheme:$theme">
 	<head>
 		<Metadata title={pageTitle} description={pageDescription} {noindex} />
 	</head>
-	<body id="body">
-		<div id="backdrop"><slot name="backdrop" /></div>
-		<header id="masthead">
-			<Masthead class:list={[{ 'hero-surface-overlay': Astro.slots.has('backdrop') }]} />
+	<body id="body"
+	      class="font-text display:grid grid-template-columns:1fr grid-template-rows:100px_1fr_60px gap:0">
+		<div id="backdrop" class="grid-area:1/1/4/2"><slot name="backdrop" /></div>
+		<header id="masthead" class="grid-area:1/1/2/2">
+			<Masthead />
 		</header>
-		<div id="content">
+		<div id="content" class="grid-area:2/1/3/2 overflow-y:scroll">
 			<slot />
 		</div>
-		<footer id="footer"><Footer /></footer>
+		<footer id="footer" class="grid-area:3/1/4/2"><Footer /></footer>
 	</body>
 </html>
-
-<style lang="scss">
-	#body {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: 100px 1fr 60px;
-		column-gap: 0px;
-		row-gap: 0px;
-		@media (max-width: 640px) {
-			grid-template-rows: 100px 1fr 100px;
-		}
-	}
-
-	#backdrop { grid-area: 1 / 1 / 4 / 2; }
-	#masthead { grid-area: 1 / 1 / 2 / 2; }
-	#content { grid-area: 2 / 1 / 3 / 2; overflow-y: scroll; }
-	#footer { grid-area: 3 / 1 / 4 / 2; }
-</style>
