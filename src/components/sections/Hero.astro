@@ -6,7 +6,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-import "@styles/hero.scss";
 import SocialIconLink from "@components/SocialIconLink.astro";
 
 interface Props {
@@ -18,14 +17,17 @@ interface Props {
 const { mainText, mainTextGradient, subText } = Astro.props;
 ---
 
-<section class="hero">
-	<div class="hero-overlay"></div>
-	<div class="hero-content">
+<section class="height:100% display:grid grid-template:1fr/1fr gap:0">
+	<div class="display:grid grid-area:1/1/2/2 align-items:center font-size:1.25rem md:font-size:1.5rem">
 		<div class="container">
-			<h1>{mainText} <span class="gradient">{mainTextGradient}</span></h1>
-			<p class="h5">{subText}</p>
-			<hr />
-			<div class="socials">
+			<h1 class="margin-bottom:0 font-weight:bold color:$brand">{mainText}
+				<span class="padding-left:0.17ch font-script font-variant-caps:small-caps
+				             background:$gradient-lei background-clip:text
+							 webkit-text-fill-color:transparent"
+				>{mainTextGradient}</span>
+			</h1>
+			<p class="color:$brand font-weight:bold">{subText}</p>
+			<div class="display:flex justify-content:center">
 				<SocialIconLink href="https://twitch.tv/MilesPernicious" name="Twitch" />
 				<SocialIconLink href="https://discord.gg/aloha" name="Discord" />
 				<SocialIconLink href="https://mastodon.world/@MilesPernicious" name="Mastodon" />
@@ -35,9 +37,3 @@ const { mainText, mainTextGradient, subText } = Astro.props;
 		</div>
 	</div>
 </section>
-<style lang="scss">
-	div.socials {
-		display: flex;
-		justify-content: center;
-	}
-</style>
