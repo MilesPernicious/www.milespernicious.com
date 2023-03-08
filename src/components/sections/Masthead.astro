@@ -5,54 +5,114 @@
  * SPDX-License-Identifier: MIT
  */
 
-import '@styles/nav.scss';
-import type { HTMLAttributes } from "astro/types";
-
-export type Props = HTMLAttributes<"div">;
-const { 'class:list': classList } = Astro.props as Props;
-
 const navLinks = [
 	{ name: "Blog", href: "/posts" },
 	{ name: "Schedule", href: "/schedule" },
 	{ name: "About", href: "/about" },
 ];
+
 ---
-<div id="navigation" class:list={classList}>
-	<nav class="menu container -row">
-		<a href="/" class="brand-link">
+
+<!--
+stylify-screens
+	// Make it easier to change the menu breakpoint, if necessary.
+	'full': '(min-width:640px)'
+/stylify-screens
+-->
+
+<div id="masthead-container"
+	class="background-color:$brand box-shadow:$shadow height:100%">
+	<div class="container display:flex justify-content:space-between height:100% align-items:center">
+		<a href="/" class="font-logo display:inline-flex align-items:center">
 			<img src="https://ik.imagekit.io/aloha/tr:orig-true/logo80.webp"
 				srcset="https://ik.imagekit.io/aloha/tr:orig-true/logo80.webp 1x, https://ik.imagekit.io/aloha/tr:orig-true/logo160.webp 2x"
 				height="80" width="80" class="brand-logo" alt="" />
 			Miles Pernicious
 		</a>
-		<button type="button" id="hamburger" aria-controls="menu-content" aria-label="Toggle Menu" aria-expanded="false">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
+		<button type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navbar-menu"
+		        class="width:40px height:40px cursor:pointer
+				       border:none background-color:transparent
+				       display:flex full:display:none
+					   align-items:center justify-content:center flex-direction:column">
+			<span class="display:block margin:2px transition:all_0.3s_ease-in-out
+			             background-color:$white width:25px height:4px
+						 [.show_&]{position:absolute;margin:0;width:30px}
+						 [.show_&]{transform:rotate(45deg)}"></span>
+			<span class="display:block margin:2px transition:all_0.3s_ease-in-out
+			             background-color:$white width:25px height:4px
+						 [.show_&]{opacity:0}"></span>
+			<span class="display:block margin:2px transition:all_0.3s_ease-in-out
+			             background-color:$white width:25px height:4px
+						 [.show_&]{position:absolute;margin:0;width:30px}
+						 [.show_&]{transform:rotate(-45deg)}" ></span>
 		</button>
-		<div id="menu-content" aria-labelledby="hamburger">
-			<ul class="menu-items">
+		<nav id="navbar-menu"
+			class="position:fixed top:100px bottom:0 left:0 right:0
+			       opacity:0 visibility:hidden transition:all_0.3_ease-in-out
+				   [.show_&]{background-color:$surface;opacity:1;visibility:visible}
+				   full:visibility:visible full:opacity:1 full:position:static full:display:block full:height:100%
+				   ">
+			<ul class="list-style-type:none max-height:0 overflow:hidden
+			           position:absolute left:0 right:0 margin:1.5rem border-radius:$radius box-shadow:$shadow
+			           display:flex flex-direction:column full:flex-direction:row align-items:center background-color:$brand
+				       [.show_&]{padding:1rem;max-height:none}
+			           full:margin:0 full:padding:0 full:box-shadow:none full:position:static full:max-height:max-content
+					   full:height:100% full:width:100% full:border-radius:0">
 				{navLinks.map((navLink) => (
-					<li><a href={navLink.href}>{navLink.name}</a></li>
+				<li class="margin:0.5rem width:100%">
+					<a href={navLink.href}
+						class="justify-content:center width:100% padding:0.5rem_1rem border-radius:$radius
+						       full:last-child:margin-right:0 color:$white text-decoration:none"
+						>{navLink.name}</a>
+				</li>
 				))}
 			</ul>
-		</div>
-	</nav>
+		</nav>
+	</div>
 </div>
 
-<script>
-	const hamburger = document.getElementById("hamburger");
-	const menu = document.getElementById("menu-content");
-	const links = menu && menu.querySelector(".menu-items");
-	if (hamburger && menu && links) {
-		const toggleExpanded = function() {
-			const ariaExpanded = !(hamburger.getAttribute("aria-expanded") === "true");
+<script type="text/javascript">
+	const mhc = document.getElementById("masthead-container");
+	const btn = mhc.querySelector("button");
 
-			hamburger.setAttribute("aria-expanded", ariaExpanded.toString());
-		};
-
-		hamburger.addEventListener("click", toggleExpanded);
-		links.addEventListener("click", (e) => e.stopPropagation());
-		menu.addEventListener("click", toggleExpanded);
+	function showMobileNavbar() {
+		mhc.classList.add("show");
+		btn.setAttribute("aria-expanded", "true");
 	}
+
+	function hideMobileNavbar() {
+		mhc.classList.remove("show");
+		btn.setAttribute("aria-expanded", "false");
+	}
+
+	function clickEventHandler(event) {
+		if (mhc.classList.contains("show")) {
+			return hideMobileNavbar();
+		}
+
+		return showMobileNavbar();
+	}
+
+	function keydownEventHandler(event) {
+		switch (event.key) {
+			case "Esc":
+			case "Escape":
+				return hideMobileNavbar();
+			default:
+				return;
+		}
+	}
+
+	btn.addEventListener("click", clickEventHandler);
+	btn.addEventListener("keydown", keydownEventHandler);
+
+	const nav = mhc.querySelector("nav");
+	const links = mhc.querySelector("ul");
+
+	links.addEventListener("click", (clickEvent) => {
+		clickEvent.stopPropagation();
+	});
+
+	nav.addEventListener("click", hideMobileNavbar);
+
 </script>
