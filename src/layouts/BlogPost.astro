@@ -16,17 +16,13 @@ const showUpdated = !!dateUpdated;
 <Layout {title} {description}>
 	<article class="container">
 		<h1>{title}</h1>
-		<h2 id="subtitle">{subtitle}</h2>
-		<p class:list={['text-small', 'date', { published: !showUpdated, updated: showUpdated }]}>
+		<h2 class="h3 font-weight:normal">{subtitle}</h2>
+		<p class:list={['font-size:$font-size-0', 'date', { published: !showUpdated, updated: showUpdated }]}>
 			{showUpdated ? "Updated on " : "Published on "}
 			<DateFormat date={showUpdated ? dateUpdated : date} />
 		</p>
+		<div class="margin-top:2rem [p,h2]{margin-bottom:2rem}">
 		<slot />
+		</div>
 	</article>
 </Layout>
-<style>
-	h2#subtitle {
-		font-family: var(--family-main);
-		font-weight: bold;
-	}
-</style>
