@@ -11,21 +11,7 @@ const { title, description, noindex } = Astro.props;
 ---
 
 <BaseLayout {title} {description} {noindex}>
-	<div id="page-contents">
+	<div class="prose padding:1rem font-size:1.2rem margin:0_auto md:padding:2.5rem">
 		<slot />
 	</div>
 </BaseLayout>
-
-<style lang="scss">
-	div#page-contents {
-		padding: 1rem;
-		--font-size: clamp(1rem, 0.45vw + 0.89rem, 1.25rem);
-		font-size: var(--font-size);
-		margin: 0 auto;
-		max-width: 75ch;
-		@media (min-width: 640px) {
-			padding: 2.5rem;
-		}
-	}
-
-</style>
