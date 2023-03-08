@@ -7,34 +7,30 @@
 
 ---
 
-<aside class="pullquote">
-	<div class="card card-content">
-		<p class="h3">
-			<slot/>
-		</p>
-	</div>
-</aside>
-
-<style lang="scss">
-	aside.pullquote {
-		>.card {
-			>p.h3 {
-				&::before {
-					float: left;
-					font-size: 5rem;
-					line-height: 2rem;
-					padding: 1rem 1rem;
-					content: '“';
-				}
-				&::after {
-					float: right;
-					font-size: 5rem;
-					line-height: 2rem;
-					padding: 1rem 1rem 0 0;
-					content: '”';
-				}
-			}
+<!--
+stylify-components
+	'pullquote': `
+		margin:1rem padding:1rem_1rem_1rem_.25rem
+		background-color:$surface color:$white
+		border-radius:$radius
+		p {
+			margin:1rem
 		}
-		margin: 1rem;
-	}
-</style>
+		::before {
+			float:left content:open-quote
+			font-size:$font-size-8 line-height:$font-lineheight-4
+			padding:1rem
+		}
+		::after {
+			float:right content:close-quote
+			font-size:$font-size-8 line-height:$font-lineheight-4
+		}
+	`
+/stylify-components
+ -->
+
+<aside class="pullquote">
+	<p class="h3 ">
+		<slot/>
+	</p>
+</aside>
