@@ -10,6 +10,12 @@ import type { HTMLAttributes } from "astro/types";
 
 export type Props = HTMLAttributes<"div">;
 const { 'class:list': classList } = Astro.props as Props;
+
+const navLinks = [
+	{ name: "Blog", href: "/posts" },
+	{ name: "Schedule", href: "/schedule" },
+	{ name: "About", href: "/about" },
+];
 ---
 <div id="navigation" class:list={classList}>
 	<nav class="menu container -row">
@@ -26,9 +32,9 @@ const { 'class:list': classList } = Astro.props as Props;
 		</button>
 		<div id="menu-content" aria-labelledby="hamburger">
 			<ul class="menu-items">
-				<li><a href="/posts">Blog</a></li>
-				<li><a href="/schedule">Schedule</a></li>
-				<li><a href="/about">About</a></li>
+				{navLinks.map((navLink) => (
+					<li><a href={navLink.href}>{navLink.name}</a></li>
+				))}
 			</ul>
 		</div>
 	</nav>
