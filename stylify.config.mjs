@@ -109,6 +109,18 @@ export default defineConfig({
 			'h4,.h4': 'font-size:$font-size-5 line-height:$font-lineheight-2',
 			'h5,.h5': 'font-size:$font-size-4 line-height:$font-lineheight-3',
 			'h6,.h6': 'font-size:$font-size-3 line-height:$font-lineheight-3',
+
+			// Forms
+			'input,textarea,select': `
+				display:block border:.1rem_solid_$text width:100%
+				focus:border-color:$brand
+			`,
+			'textarea': 'min-height:5rem',
+			'input[type=checkbox],input[type=radio]': `
+				display:inline-block width:initial height:1rem
+				& + label { display:inline margin-left:.5rem }
+			`,
+			'label,legend': 'display:block font-size:$font-size-3 margin-bottom:.5rem'
 		},
 	},
 });

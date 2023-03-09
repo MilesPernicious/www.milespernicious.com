@@ -39,24 +39,12 @@ const formEndpoint = "https://form.taxi/s/3qjy4gdw";
 			<label for="consent"><small>I have read and agree to the <a href="/privacy">Privacy Policy</a> and am of legal age.</small></label>
 		</p>
 
-		<p><button class="btn -theme" type="submit">Submit</button></p>
+		<p><button type="submit">Submit</button></p>
 
-		<p class="verification">
+		<p class="display:none">
 			<label for="website">Verify you are human by leaving this field empty</label>
 			<input type="url" id="website" name="website" tabindex="-1" autocomplete=false value="" />
 		</p>
 	</form>
 
 </Layout>
-
-<style lang="scss">
-	p.consent {
-		display: grid;
-		grid-template-columns: 1rem 1fr;
-		grid-template-rows: auto;
-		column-gap: 0.75rem;
-	}
-	p.verification {
-		display: none;
-	}
-</style>
