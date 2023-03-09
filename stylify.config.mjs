@@ -122,5 +122,19 @@ export default defineConfig({
 			`,
 			'label,legend': 'display:block font-size:$font-size-3 margin-bottom:.5rem'
 		},
+		macros: {
+			'(border|margin|padding)X:(\\S+?)': ({ macroMatch, selectorProperties }) => {
+				const left = `${macroMatch.getCapture(0)}-left`;
+				const right = `${macroMatch.getCapture(0)}-right`;
+				selectorProperties.add(left, macroMatch.getCapture(1));
+				selectorProperties.add(right, macroMatch.getCapture(1));
+			},
+			'(border|margin|padding)Y:(\\S+?)': ({ macroMatch, selectorProperties }) => {
+				const top = `${macroMatch.getCapture(0)}-top`;
+				const bottom = `${macroMatch.getCapture(0)}-bottom`;
+				selectorProperties.add(top, macroMatch.getCapture(1));
+				selectorProperties.add(bottom, macroMatch.getCapture(1));
+			},
+		},
 	},
 });
