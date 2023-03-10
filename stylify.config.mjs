@@ -60,12 +60,6 @@ export default defineConfig({
 			'font-lineheight-5': '2',
 		},
 		components: {
-			card: `
-				display:flex flex-direction:column
-				border:1px_solid_$brand border-radius:$radius
-				padding:0.5rem
-				box-shadow:$shadow
-			`,
 			container: 'width:100% xl:max-width:1280px margin:0_auto',
 			transparent: 'background-color:transparent',
 
