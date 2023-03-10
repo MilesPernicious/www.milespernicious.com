@@ -19,11 +19,11 @@ const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date)
 
 <Layout title="Blog posts" description="A list of the most recent blog posts from Miles">
 	<div class="container">
-	<h1 id="top">Blog posts</h1>
+	<h1 class="text-align:center marginY:2rem">Blog posts</h1>
 	{posts.map(post => (
-		<article>
-			<div class="headline"><a href={`/posts/${post.slug}`}>{post.data.title}</a></div>
-			<div class="date">Published on <DateFormat date={post.data.date} /></div>
+		<article class="marginY:2rem">
+			<h2 class="h3"><a href={`/posts/${post.slug}`}>{post.data.title}</a></h2>
+			<div class="font-size:$font-size-0">Published on <DateFormat date={post.data.date} /></div>
 			<div class="tags">
 				{post.data.tags && post.data.tags.map(tag => (
 					<Badge>{tag}</Badge>
@@ -34,19 +34,3 @@ const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date)
 	))}
 	</div>
 </Layout>
-
-<style lang="scss">
-	h1#top {
-		text-align: center;
-		font-size: 3rem;
-		margin-top: 2rem;
-	}
-	article {
-		margin-bottom: 2.2rem;
-		.date {
-			font-size: 0.8em;
-		}
-
-		.headline { font-size: x-large }
-	}
-</style>
