@@ -6,6 +6,7 @@
  */
 
 import Layout from '@layouts/PageLayout.astro';
+import Button from '@components/Button.astro';
 
 const title = "Mahalo"
 const description = "Form Submission.  Thank You for your Feedback!"
@@ -17,12 +18,6 @@ const description = "Form Submission.  Thank You for your Feedback!"
 	<h1>Mahalo!</h1>
 	<p>Thank you for taking the time to provide feedback!  You will get a reply as soon as possible, usually within 48 hours.</p>
 
-	<a class="btn -theme" href="/">Home Page</a> <a class="btn -outline" href="/posts">Blog Posts</a>
+	<Button class="marginX:1rem" href="/">Home Page</Button> <Button href="/posts">Blog Posts</Button>
 
 </Layout>
-
-<style lang="scss">
-	a.btn {
-		margin: 1rem;
-	}
-</style>

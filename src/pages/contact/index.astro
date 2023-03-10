@@ -6,6 +6,7 @@
  */
 
 import Layout from '@layouts/PageLayout.astro';
+import Button from '@components/Button.astro';
 
 const title = "Contact Us"
 const description = "Use this form to provide feedback about your experience on our website!"
@@ -39,7 +40,7 @@ const formEndpoint = "https://form.taxi/s/3qjy4gdw";
 			<label for="consent"><small>I have read and agree to the <a href="/privacy">Privacy Policy</a> and am of legal age.</small></label>
 		</p>
 
-		<p><button type="submit">Submit</button></p>
+		<p><Button type="submit">Submit</Button></p>
 
 		<p class="display:none">
 			<label for="website">Verify you are human by leaving this field empty</label>
