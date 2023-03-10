@@ -30,32 +30,14 @@ if (fullWidth) {
 }
 ---
 
-<figure class:list={["card inline-flex", { full: Astro.props.full !== undefined }]}>
+<figure class:list={["width:400px max-width:95%",
+		{
+			'sm:width:800px sm:float:none marginY:2rem': fullWidth,
+			'sm:float:right tosm:marginY:2rem sm:margin-left:1.5rem': !fullWidth
+		},
+]}>
 	<img class="card-media" src={imgURL2x} {alt} {srcset} />
-	<figcaption class="card-content">{caption}
-		<div class="credit">{credit}</div>
+	<figcaption class="font-size:$font-size-1">{caption}
+		<div class="font-size:$font-size-0">{credit}</div>
 	</figcaption>
 </div>
-
-<style lang="scss">
-	figure.card {
-		width: 400px;
-		max-width: 95%;
-		@media (min-width: 640px) {
-			float: right;
-			margin-left: 1.5rem;
-
-			&.full {
-				width: 800px;
-				float: none;
-				margin: 1.5rem auto;
-			}
-		}
-		figcaption {
-			font-size: smaller;
-			.credit {
-				font-size: smaller;
-			}
-		}
-	}
-</style>
