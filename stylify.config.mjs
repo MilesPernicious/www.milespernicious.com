@@ -2,7 +2,7 @@ import { defineConfig } from '@stylify/astro';
 
 export default defineConfig({
 	compiler: {
-		mangleSelectors: false,
+		mangleSelectors: true,
 		replaceVariablesByCssVariables: true,
 		externalVariables: [
 			(variable) => variable.startsWith('miles-font') ? true : undefined
