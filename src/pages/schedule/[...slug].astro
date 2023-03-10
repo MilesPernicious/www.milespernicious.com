@@ -25,6 +25,7 @@ const { schedule } = Astro.props;
 
 <Layout {...schedule.data}>
 	<h1>Schedule for {schedule.data.month}</h1>
+	<p class="h6">Note: times listed are in Hawaiian Time (UTC-10). Schedule may change. Check back for the latest updates!</p>
 
 	{schedule.data.events.map((sked: any) =>
 	<div class="display:grid grid-template-columns:80px_1fr grid-template-rows:1fr_2rem column-gap:1rem marginY:2rem">
