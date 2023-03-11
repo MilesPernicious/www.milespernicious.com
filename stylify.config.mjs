@@ -15,7 +15,7 @@ export default defineConfig({
 			'text-2': '#16191d',
 			surface: '#afcfe2',
 			'surface-2': '#76c2da',
-			'gradient-lei': 'linear-gradient(to left, dodgerblue 5%, darkviolet 75%, deeppink 100%)',
+			'gradient-lei': 'linear-gradient(to left, pink 5%, violet 75%, deeppink 100%)',
 
 			dark: {
 				// Theme overrides
