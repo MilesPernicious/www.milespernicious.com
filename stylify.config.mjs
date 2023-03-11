@@ -78,6 +78,9 @@ export default defineConfig({
 				p {
 					margin-bottom:1.5rem
 				}
+				hr {
+					marginY:1rem
+				}
 			`,
 
 			'sr-only': `
