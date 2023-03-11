@@ -78,7 +78,7 @@ export default defineConfig({
 				p {
 					margin-bottom:1.5rem
 				}
-				hr {
+				hr,ol,ul {
 					marginY:1rem
 				}
 			`,
