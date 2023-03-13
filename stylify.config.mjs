@@ -1,6 +1,7 @@
 import { defineConfig } from '@stylify/astro';
 
 export default defineConfig({
+	importDefaultBundle: false,
 	compiler: {
 		mangleSelectors: false,
 		replaceVariablesByCssVariables: true,
