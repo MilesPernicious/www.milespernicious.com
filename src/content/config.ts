@@ -39,17 +39,7 @@ const scheduleCollection = defineCollection({
 		month: z.string(),
 		events: z.array(z.object({
 			event: z.object({
-				start: z.string().transform((startTime, ctx) => {
-					const parsed = Date.parse(startTime);
-					if (Number.isNaN(parsed)) {
-						ctx.addIssue({
-							code: z.ZodIssueCode.invalid_date,
-							message: "Start Date must be a valid date string",
-						});
-						return z.NEVER;
-					}
-					return startTime;
-				}),
+				start: z.coerce.date(),
 				duration: z.string(),
 				game: z.string(),
 				platform: z.string(),
