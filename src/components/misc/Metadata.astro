@@ -11,6 +11,9 @@ const { title, description, image = '/og-miles.webp', noindex = false } = Astro.
 
 const suffix = import.meta.env.DEV === true ? "-dev" : "";
 const version = APP_VERSION + suffix;
+
+const isLiveProduction = import.meta.env.PROD && import.meta.env.BUILD_CHANNEL === "release";
+
 ---
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -40,7 +43,7 @@ const version = APP_VERSION + suffix;
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
-{import.meta.env.PROD === true &&
+{isLiveProduction &&
 <script data-goatcounter="https://miles.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script async defer src="https://analytics.umami.is/script.js" data-website-id="b39d1bb0-8d36-47d1-b78f-dc1e19fdc4c2"></script>
 }
