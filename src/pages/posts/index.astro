@@ -22,7 +22,7 @@ const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date)
 	<h1 class="text-align:center marginY:2rem">Blog posts</h1>
 	{posts.map(post => (
 		<article class="marginY:2rem">
-			<h2 class="h3"><a href={`/posts/${post.slug}`}>{post.data.title}</a></h2>
+			<h2 class="h3"><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h2>
 			<div class="font-size:$font-size-0">Published on <DateFormat date={post.data.date} /></div>
 			<div class="tags">
 				{post.data.tags && post.data.tags.map(tag => (

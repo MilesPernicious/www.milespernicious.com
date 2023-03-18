@@ -7,10 +7,12 @@ import stylifyConfig from './stylify.config.mjs';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.milespernicious.com',
+	trailingSlash: "always",
+
 	integrations: [
 		mdx(),
 		sitemap({
-			filter: (page) => page !== 'https://www.milespernicious.com/contact/mahalo',
+			filter: (page) => page !== 'https://www.milespernicious.com/contact/mahalo/',
 		}),
 		stylify(stylifyConfig),
 	],

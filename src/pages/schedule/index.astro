@@ -20,7 +20,7 @@ const months = coll.sort((a: any, b: any) => dayjs(b.data.month).unix() - dayjs(
 	<h1 class="text-align:center marginY:2rem">Miles' schedule</h1>
 	{months.map((schedule: any) => (
 		<article class="marginY:2rem">
-			<div class="h3 text-align:center"><a href={`/schedule/${schedule.slug}`}>{schedule.data.month}</a></div>
+			<div class="h3 text-align:center"><a href={`/schedule/${schedule.slug}/`}>{schedule.data.month}</a></div>
 		</article>
 	))}
 	</div>
