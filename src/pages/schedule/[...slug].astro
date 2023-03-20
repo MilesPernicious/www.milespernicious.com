@@ -32,7 +32,12 @@ const { schedule } = Astro.props;
 		<div class="grid-area:1/1/2/2"><DateIcon date={sked.event.start} /></div>
 		<div class="grid-area:2/1/3/2 text-align:center font-size:$font-size-1"><small><DateFormat date={sked.event.start} format="h:mm A" /></small></div>
 		<div class="grid-area:1/2/3/3 display:flex flex-direction:column">
-			<div><h2 class="h6 display:inline">{sked.event.game}</h2> <Badge>{sked.event.platform}</Badge></div>
+			<div>
+				<h2 class="h6 display:inline">{sked.event.game}</h2>
+				{sked.event.platform.map((badge: string) =>
+					<Badge>{badge}</Badge>
+				)}
+			</div>
 			<p>{sked.event.plan}</p>
 		</div>
 	</div>

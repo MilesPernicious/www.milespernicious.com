@@ -42,7 +42,7 @@ const scheduleCollection = defineCollection({
 				start: z.coerce.date(),
 				duration: z.string(),
 				game: z.string(),
-				platform: z.string(),
+				platform: z.array(z.string()),
 				plan: z.string(),
 			}),
 		})),
