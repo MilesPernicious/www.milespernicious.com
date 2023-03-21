@@ -64,12 +64,6 @@ export default defineConfig({
 			container: 'width:100% xl:max-width:1280px margin:0_auto',
 			transparent: 'background-color:transparent',
 
-			'font-logo': `
-				font-family:$miles-font-logo font-variant-caps:small-caps
-				font-size:28px line-height:0.9em
-				color:#fff text-shadow:-2px_2px_2px_black
-				text-decoration:none
-			`,
 			'font-text': 'font-family:$miles-font-text',
 			'font-script': 'font-family:$miles-font-script',
 
