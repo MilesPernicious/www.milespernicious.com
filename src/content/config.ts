@@ -14,8 +14,8 @@ const blogCollection = defineCollection({
 		description: z.string().min(50).max(160),
 		author: z.string().default('AUTHOR'),
 		tags: z.array(z.string()).optional(),
-		date: z.string(),
-		dateUpdated: z.string().optional(),
+		date: z.coerce.date(),
+		dateUpdated: z.coerce.date().optional(),
 		license: z.string().default('CC-BY-SA-4.0'),
 		draft: z.boolean().default(false),
 		featuredImage: z.object({
@@ -29,7 +29,7 @@ const blogCollection = defineCollection({
 const legalCollection = defineCollection({
 	schema: z.object({
 		title: z.string(),
-		dateUpdated: z.string(),
+		dateUpdated: z.coerce.date(),
 		description: z.string(),
 	})
 });
