@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { SiteConfig } from '@config';
+
 export interface Props {
 	date: Date,
 	timeZone?: string,
@@ -17,7 +19,7 @@ export interface Props {
 	hour12?: 'true' | 'false',
 };
 
-const { date, timeZone, year, month, day, weekday, hour, minute, hour12 } = Astro.props;
+const { date, timeZone = SiteConfig.timezone, year, month, day, weekday, hour, minute, hour12 } = Astro.props;
 
 const options = {
 	timeZone: timeZone,
@@ -37,7 +39,7 @@ const formatted = formatter.format(date);
 
 // If we weren't given a time zone, we will use the runtime client's
 // Set data-timeconvert and we'll iterate to make sure we do so.
-const dataTimeConvert = timeZone === undefined;
+const dataTimeConvert = Astro.props['timeZone'] === undefined;
 const dataOptions = dataTimeConvert ? JSON.stringify(options) : '';
 
 ---
