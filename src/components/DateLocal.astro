@@ -1,0 +1,49 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+export interface Props {
+	date: Date,
+	timeZone?: string,
+	year?: 'numeric' | '2-digit',
+	month?: 'numeric' | '2-digit' | 'narrow' | 'short' | 'long',
+	day?: 'numeric' | '2-digit',
+	weekday?: 'narrow' | 'short' | 'long',
+	hour?: 'numeric' | '2-digit',
+	minute?: 'numeric' | '2-digit',
+	hour12?: 'true' | 'false',
+};
+
+const { date, timeZone, year, month, day, weekday, hour, minute, hour12 } = Astro.props;
+
+const options = {
+	timeZone: timeZone,
+	year: year,
+	month: month,
+	day: day,
+	weekday: weekday,
+	hour: hour,
+	minute: minute,
+	hour12: hour12
+};
+
+const formatter = new Intl.DateTimeFormat('en-US', options);
+
+// Pre-format the date
+const formatted = formatter.format(date);
+
+// If we weren't given a time zone, we will use the runtime client's
+// Set data-timeconvert and we'll iterate to make sure we do so.
+const dataTimeConvert = timeZone === undefined;
+const dataOptions = dataTimeConvert ? JSON.stringify(options) : '';
+
+---
+
+<time datetime={date.toISOString()} data-datelocal-options={dataOptions}>
+	{formatted}
+</time>
+
+<script src="../scripts/datelocal-format.js"></script>

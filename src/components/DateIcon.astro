@@ -4,7 +4,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import DateFormat from '@components/DateFormat.astro';
+import DateLocalSVG from '@components/DateLocalSVG.astro';
 
 const { date } = Astro.props;
 
@@ -21,10 +21,7 @@ const { date } = Astro.props;
 <circle cx="384" cy="142" r="14"/>
 <circle cx="384" cy="100" r="14"/>
 </g>
-<text x="32" y="164" fill="#fff" font-family="monospace" font-size="140px" text-anchor="left">
-	<DateFormat {date} format="MMM" /></text>
-<text x="256" y="400" fill="#66757f" font-family="monospace" font-size="256px" text-anchor="middle">
-	<DateFormat {date} format="DD" /></text>
-<text x="256" y="480" fill="#66757f" font-family="monospace" font-size="64px" text-anchor="middle">
-	<DateFormat {date} format="dddd" /></text>
+<DateLocalSVG {date} month="short" x="32" y="164" fill="#fff" font-family="monospace" font-size="140px" text-anchor="left" />
+<DateLocalSVG {date} day="2-digit" x="256" y="400" fill="#66757f" font-family="monospace" font-size="256px" text-anchor="middle" />
+<DateLocalSVG {date} weekday="long" x="256" y="480" fill="#66757f" font-family="monospace" font-size="64px" text-anchor="middle" />
 </svg>

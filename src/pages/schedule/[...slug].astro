@@ -8,7 +8,7 @@
 import { getCollection } from "astro:content";
 import Layout from "@layouts/PageLayout.astro";
 import DateIcon from "@components/DateIcon.astro";
-import DateFormat from "@components/DateFormat.astro";
+import DateLocal from "@components/DateLocal.astro";
 import Badge from "@components/Badge.astro";
 
 export async function getStaticPaths() {
@@ -24,13 +24,17 @@ const { schedule } = Astro.props;
 ---
 
 <Layout {...schedule.data}>
-	<h1>Schedule for {schedule.data.month}</h1>
-	<p class="h6">Note: times listed are in Hawaiian Time (UTC-10). Schedule may change. Check back for the latest updates!</p>
+	<h1 class="marginY:1rem">Schedule for {schedule.data.month}</h1>
+	<p class="h6">Note: times listed are in <span data-datelocal-timezone-text class="background-color:$brand color:$white font-weight:bold">Pacific/Honolulu</span>. Schedule may change. Check back for the latest updates!</p>
 
 	{schedule.data.events.map((sked: any) =>
 	<div class="display:grid grid-template-columns:80px_1fr grid-template-rows:1fr_2rem column-gap:1rem marginY:2rem">
 		<div class="grid-area:1/1/2/2"><DateIcon date={sked.event.start} /></div>
-		<div class="grid-area:2/1/3/2 text-align:center font-size:$font-size-1"><small><DateFormat date={sked.event.start} format="h:mm A" /></small></div>
+		<div class="grid-area:2/1/3/2 text-align:center font-size:$font-size-1">
+			<small>
+				<DateLocal date={sked.event.start} hour="numeric" minute="2-digit" />
+			</small>
+		</div>
 		<div class="grid-area:1/2/3/3 display:flex flex-direction:column">
 			<div>
 				<h2 class="h6 display:inline">{sked.event.game}</h2>
