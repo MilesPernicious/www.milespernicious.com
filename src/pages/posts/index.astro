@@ -8,12 +8,11 @@
 import Layout from '@layouts/PageLayout.astro';
 
 import Badge from "@components/Badge.astro";
-import DateFormat from '@components/DateFormat.astro';
-import dayjs from 'dayjs';
+import DateTime from '@components/DateTimeHTML.astro';
 
 import { getCollection } from 'astro:content';
 const coll = await getCollection('blog');
-const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date).unix()).filter(p => !p.data.draft);
+const posts = coll.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 ---
 
@@ -23,7 +22,11 @@ const posts = coll.sort((a, b) => dayjs(b.data.date).unix() - dayjs(a.data.date)
 	{posts.map(post => (
 		<article class="marginY:2rem">
 			<h2 class="h3"><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h2>
-			<div class="font-size:$font-size-0">Published on <DateFormat date={post.data.date} /></div>
+			<div class="font-size:$font-size-0">
+				Published on
+				<DateTime date={post.data.date}
+				          month="long" day="numeric" year="numeric" />
+			</div>
 			<div class="tags">
 				{post.data.tags && post.data.tags.map(tag => (
 					<Badge>{tag}</Badge>

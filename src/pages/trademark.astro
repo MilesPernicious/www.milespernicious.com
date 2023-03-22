@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import DateFormat from '@components/DateFormat.astro';
+import DateTime from '@components/DateTimeHTML.astro';
 import Layout from '@layouts/PageLayout.astro';
 import { getEntryBySlug } from 'astro:content';
 
@@ -16,7 +16,11 @@ const { Content } = await page.render();
 <Layout {...page.data}>
 	<article class="container">
 		<h1>{page.data.title}</h1>
-		<p>Last Updated: <DateFormat date={page.data.dateUpdated} /></p>
+		<p>
+			Last Updated:
+			<DateTime date={page.data.dateUpdated}
+			          month="long" day="numeric" year="numeric" />
+		</p>
 		<Content />
 	</article>
 </Layout>

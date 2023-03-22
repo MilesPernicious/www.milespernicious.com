@@ -6,12 +6,10 @@
  */
 
 import Layout from '@layouts/PageLayout.astro';
-import DateFormat from '@components/DateFormat.astro';
-import dayjs from 'dayjs';
 
 import { getCollection } from 'astro:content';
 const coll = await getCollection('schedule');
-const months = coll.sort((a: any, b: any) => dayjs(b.data.month).unix() - dayjs(a.data.month).unix());
+const months = coll.sort((a, b) => b.data.events[0].event.start.getTime() - a.data.events[0].event.start.getTime());
 
 ---
 

@@ -16,7 +16,7 @@ export interface Props {
 	weekday?: 'narrow' | 'short' | 'long',
 	hour?: 'numeric' | '2-digit',
 	minute?: 'numeric' | '2-digit',
-	hour12?: 'true' | 'false',
+	hour12?: boolean,
 };
 
 const { date, timeZone = SiteConfig.timezone, year, month, day, weekday, hour, minute, hour12 } = Astro.props;
@@ -32,20 +32,10 @@ const options = {
 	hour12: hour12
 };
 
-const formatter = new Intl.DateTimeFormat('en-US', options);
-
-// Pre-format the date
-const formatted = formatter.format(date);
-
-// If we weren't given a time zone, we will use the runtime client's
-// Set data-timeconvert and we'll iterate to make sure we do so.
-const dataTimeConvert = Astro.props['timeZone'] === undefined;
-const dataOptions = dataTimeConvert ? JSON.stringify(options) : '';
+const formatted = new Intl.DateTimeFormat('en-US', options).format(date);
 
 ---
 
-<time datetime={date.toISOString()} data-datelocal-options={dataOptions}>
-	{formatted}
-</time>
+{formatted}
 
-<script src="@scripts/datelocal-format.js"></script>
+<script src="@scripts/datetime-format.js"></script>

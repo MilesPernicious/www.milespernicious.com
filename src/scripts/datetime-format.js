@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-function datelocalFormat() {
-	const elements = document.querySelectorAll("time[datetime],text[data-datelocal-options]");
+function dateTimeFormat() {
+	const elements = document.querySelectorAll("time[datetime],text[data-datetime-options]");
 	for (const elem of elements) {
 		let date;
 		if (elem instanceof HTMLTimeElement) {
@@ -15,12 +15,12 @@ function datelocalFormat() {
 			date = new Date(elem.dataset.datetime);
 		}
 
-		const options = JSON.parse(elem.dataset.datelocalOptions);
+		const options = JSON.parse(elem.dataset.datetimeOptions);
 
 		elem.textContent = new Intl.DateTimeFormat('en-US', options).format(date);
 	}
 
-	const zoneTexts = document.querySelectorAll("[data-datelocal-timezone-text]");
+	const zoneTexts = document.querySelectorAll("[data-datetime-timezone-text]");
 	if (zoneTexts.length === 0) {
 		return;
 	}
@@ -31,4 +31,4 @@ function datelocalFormat() {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", datelocalFormat);
+document.addEventListener("DOMContentLoaded", dateTimeFormat);

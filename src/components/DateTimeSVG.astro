@@ -1,0 +1,31 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+import DateTime from '@components/DateTime.astro';
+
+const { date, ...attrs } = Astro.props;
+
+const options = {
+	timeZone: Astro.props.timeZone,
+	year: Astro.props.year,
+	month: Astro.props.month,
+	day: Astro.props.day,
+	weekday: Astro.props.weekday,
+	hour: Astro.props.hour,
+	minute: Astro.props.minute,
+	hour12: Astro.props.hour12
+};
+
+// If we weren't given a time zone, we will use the runtime client's
+// Set data-datetime-options and we'll iterate to make sure we do so.
+const runtimeFormat = Astro.props['timeZone'] === undefined;
+const dataOptions = runtimeFormat ? JSON.stringify(options) : '';
+---
+
+<text data-datetime={date.toISOString()} data-datetime-options={dataOptions} {...attrs}>
+	<DateTime {date} {...attrs} />
+</text>
