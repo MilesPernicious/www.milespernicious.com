@@ -21,9 +21,12 @@ export async function getStaticPaths() {
 }
 
 const { schedule } = Astro.props;
+
+const title = `${schedule.data.month} schedule`;
+const description = `Miles’ stream schedule for the month of ${schedule.data.month}`;
 ---
 
-<Layout {...schedule.data}>
+<Layout {...schedule.data} {title} {description}>
 	<h1 class="marginY:1rem">Schedule for {schedule.data.month}</h1>
 	<p class="h6">
 		Note: times listed are in
