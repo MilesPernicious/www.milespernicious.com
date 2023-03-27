@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { SiteConfig } from '@config';
+
 import Layout from '@layouts/HeroLayout.astro';
 import Hero from '@components/sections/Hero.astro';
 
@@ -15,6 +17,6 @@ const subText = "Your page wasn't found, but since 808 is the area code for Hawa
 const title = "808 | Page Not Found";
 ---
 
-<Layout {title} noindex=true>
+<Layout {title} description={SiteConfig.description} noindex=true>
 	<Hero {mainText} {mainTextGradient} {subText} />
 </Layout>
