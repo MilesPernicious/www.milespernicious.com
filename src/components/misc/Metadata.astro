@@ -5,9 +5,23 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { SiteConfig } from '@config';
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/og-miles.webp', noindex = false } = Astro.props;
+const { image = '/og-miles.webp', noindex = false } = Astro.props;
+
+if (Astro.props.title === undefined || Astro.props.description === undefined) {
+	throw new Error("All pages must have a title and description!");
+}
+
+let pageTitle;
+if (Astro.props.title !== SiteConfig.title) {
+	pageTitle = `${Astro.props.title} ${SiteConfig.titleSeparator} ${SiteConfig.title}`;
+}
+
+const title = pageTitle ?? Astro.props.title;
+const description = Astro.props.description;
 
 const suffix = import.meta.env.DEV === true ? "-dev" : "";
 const version = APP_VERSION + suffix;

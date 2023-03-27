@@ -13,24 +13,14 @@ import Metadata from "@components/misc/Metadata.astro";
 import Masthead from '@components/sections/Masthead.astro';
 import Footer from "@components/sections/Footer.astro";
 
-import { SiteConfig } from "@config";
-
 const { title, description, noindex } = Astro.props;
 
-let pageTitle = title;
-let pageDescription = description || SiteConfig.description;
-if (pageTitle) {
-	pageTitle = pageTitle.concat(" ", SiteConfig.titleSeparator, " ", SiteConfig.title);
-}
-else {
-	pageTitle = SiteConfig.title;
-}
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="color-scheme:$theme overflow-y:hidden">
 	<head>
-		<Metadata title={pageTitle} description={pageDescription} {noindex} />
+		<Metadata {title} {description} {noindex} />
 	</head>
 	<body id="body"
 	      class="font-text display:grid grid-template-columns:1fr grid-template-rows:100px_1fr_60px gap:0">
