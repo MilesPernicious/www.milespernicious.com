@@ -76,6 +76,9 @@ export default defineConfig({
 				hr,ol,ul {
 					marginY:1rem
 				}
+				code {
+					background-color:$surface-2 color:$text-2
+				}
 			`,
 
 			'sr-only': `
