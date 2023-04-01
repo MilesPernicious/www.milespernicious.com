@@ -1,0 +1,21 @@
+---
+/*
+ * (C) Copyright 2023 Miles Pernicious
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+const { x, y, z } = Astro.props;
+
+if (x === undefined || z === undefined) {
+	throw new Error("Coordinates must have both an X and Z value set.")
+}
+
+---
+<span>
+	<samp class="border-bottom:2px_dotted_$text" title={`X: ${x}`}>{x}</samp>
+	{y !== undefined &&
+		<samp class="border-bottom:2px_dotted_$text" title={`Y: ${y}`}>{y}</samp>
+	}
+	<samp class="border-bottom:2px_dotted_$text" title={`Z: ${z}`}>{z}</samp>
+</span>
