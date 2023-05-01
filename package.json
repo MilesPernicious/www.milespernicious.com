@@ -11,12 +11,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.18.2",
-    "@astrojs/sitemap": "^1.2.1",
+    "@astrojs/mdx": "^0.19.0",
+    "@astrojs/sitemap": "^1.2.2",
     "@jasikpark/astro-svg-loader": "^0.1.0",
     "@stylify/astro": "^0.5.30",
     "@svg-icons/ionicons-solid": "1.86.0",
-    "astro": "^2.1.8",
+    "astro": "^2.3.2",
     "autoprefixer": "^10.4.14",
     "cssnano": "^5.1.15",
     "sass": "^1.58.2"
