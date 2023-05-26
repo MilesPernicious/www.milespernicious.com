@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 	const schedules = await getCollection("schedule");
 
 	return schedules.map((schedule) => ({
-		params: { slug: schedule.slug },
+		params: { slug: schedule.id },
 		props: { schedule },
 	}));
 }

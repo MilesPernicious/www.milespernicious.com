@@ -1,4 +1,3 @@
----
 month: March 2023
 events:
   - event:
@@ -22,4 +21,3 @@ events:
       platform: [ Java, Linux ]
       plan: Minecraft 1.20 snapshot and OhanaCraft Season 3 Planning
 
----

@@ -16,9 +16,9 @@ const months = coll.sort((a, b) => b.data.events[0].event.start.getTime() - a.da
 <Layout title="Miles' schedule" description="When is Miles' next stream?">
 	<div class="container">
 	<h1 class="text-align:center marginY:2rem">Miles' schedule</h1>
-	{months.map((schedule: any) => (
+	{months.map((schedule) => (
 		<article class="marginY:2rem">
-			<div class="h3 text-align:center"><a href={`/schedule/${schedule.slug}/`}>{schedule.data.month}</a></div>
+			<div class="h3 text-align:center"><a href={`/schedule/${schedule.id}/`}>{schedule.data.month}</a></div>
 		</article>
 	))}
 	</div>

@@ -34,6 +34,7 @@ const legalCollection = defineCollection({
 });
 
 const scheduleCollection = defineCollection({
+	type: 'data',
 	schema: z.object({
 		month: z.string(),
 		events: z.array(z.object({

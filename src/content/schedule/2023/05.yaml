@@ -1,4 +1,3 @@
----
 month: May 2023
 events:
   - event:
@@ -42,4 +41,3 @@ events:
       game: Minecraft
       platform: [ Java, Linux ]
       plan: Single-player Minecraft and chat
----
